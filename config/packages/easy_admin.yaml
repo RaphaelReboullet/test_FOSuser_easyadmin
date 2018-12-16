@@ -1,0 +1,17 @@
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+      list:
+        fields: ['username', 'name', 'firstname', 'birthdate', 'email', 'enabled', 'lastLogin', 'roles']
+      form:
+        fields:
+          - username
+          - email
+          - name
+          - firstname
+          - birthdate
+          - enabled
+          - lastLogin
+          - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+          - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
